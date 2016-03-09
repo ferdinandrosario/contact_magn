@@ -1,0 +1,53 @@
+<%= form_tag '/contacts', :method => :post do %>
+<div class="container">
+  <div class="form-group">
+    <label for="first_name" class="form-group">First Name</label>
+    <%= text_field_tag 'contact[first_name]'%>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <%= text_field_tag 'contact[last_name]'%>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#address">Address</a></li>
+    <li><a data-toggle="tab" href="#communication">Communication Details</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="address" class="tab-pane fade in active">
+      <%= link_to 'Add Another','javascript:void(0)',id:"add_another_address"%>
+      <div >
+        <div class="form-group">
+          <label for="address">Address 1</label>
+          <%= text_field_tag 'contact[address][0][address_one]','',class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <label for="Country">Country</label>
+          <%= text_field_tag 'contact[address][0][country]','',class: 'form-control'%>
+        </div>
+      </div>
+
+    </div>
+    <div id="communication" class="tab-pane fade">
+      <%= link_to 'Add Another','javascript:void(0)',id:"add_another_com"%>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= submit_tag "Save", :class => 'btn btn-default'%>
+<%end%>
+<script type="text/javascript">
+  /* Helps to add another address */
+jQuery('#add_another_address').click(function() {
+  inc_val = $('#address .form-control').length/2
+  $("#address").append("<div><div class='form-group'><label for='address'>Address 1</label><input type='text' name='contact[address]["+inc_val+"][address_one]' class='form-control'></div><div class='form-group'><label for='address'>Country</label><input type='text' name='contact[address]["+inc_val+"][country]' class='form-control'></div></div>");
+});
+/* Helps to add another communication details */
+$('#add_another_com').click(function() {
+  inc_val = $('#communication .form-control').length
+  $("#communication").append("<div><div class='form-group'><label for='address'>Phone</label><input type='text' name='contact[com]["+inc_val+"][phone]' class='form-control'></div></div>");
+});
+
+</script>

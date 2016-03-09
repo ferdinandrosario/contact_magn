@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <tr>
+    <th>First Name</th>
+    <th>Last name</th>
+    <th>Primary Address</th>
+    <th>Primary Phone</th>
+  </tr>
+  <% @contacts && @contacts.each do |d| %>
+  <tr>
+    <td> <%= d.first_name%> </td>
+    <td> <%= d.last_name%> </td>
+    <td><%= d.addresses.first.add_one  unless d.addresses.blank? %> <%= d.addresses.first.country unless d.addresses.blank? %> </td>
+    <td><%= d.communications.first.phone unless d.communications.blank? %></td>
+  </tr>
+  <%end%>
+</table>
