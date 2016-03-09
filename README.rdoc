@@ -1,15 +1,22 @@
-System Requirment
+
+
+
+System Requirement
  * Ruby 2.3.0
  * Rails 4.2.6
 
 Steps to run the application
 
 * Clone the repository
+
 * Inside project repository run the following command
 <tt>bundle install</tt>
+
 * Run the following command to create and migration database
 <tt>bundle exec rake db:create</tt>
 <tt>bundle exec rake db:migrate</tt>
+
 * Run the server using the following command
 <tt>rails s</tt>
-* Navigate to <tt>localhost:3000</ttd>
+
+* Navigate to <tt>localhost:3000</tt>
