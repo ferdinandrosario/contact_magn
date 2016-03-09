@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+root 'contacts#index'
 resources :contacts, only: [:index, :new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
