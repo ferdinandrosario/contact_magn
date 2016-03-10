@@ -1,8 +1,6 @@
 class ContactsController < ApplicationController
   def index
     @contacts = Contact.fetch_all
-    p 3333333
-    p  @contacts
   end
 
   def new
